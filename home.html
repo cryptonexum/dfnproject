@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>
+  <meta name="description" content="DFN (Decentralized Finance Network) is Complete peer to peer decentralized finance network. Provides all Banking Solutions on your fingertips."/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="loader" class="loader">
+    <div class="spinner"></div>
+  </div>
+  <nav class="top-navbar">
+    <div class="container">
+  
+      <h3 id="header-title">
+       <a href="./home.html"> <img src="./images/dfn-logo-header.png" width="120px"></a>
+      </h3>
+      <w3m-core-button  id="web3-login-button" class="web3-login-button"></w3m-core-button>
+      <div class="web3-wallet-address" style="display: none;">
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+  
+    <div class="card">
+      
+      <h5>~ <span id="name-membership"></span>  ~</h5>
+      <h2  class="balance"><span id="balance">0</span> DFN</h2>
+      <p  class="usd-value-main">~ <span id="balance-usd-value">0 </span>USD</p>
+      <div class="d-flex justify-content-between">
+        <div class="staked-amount no-margin">
+          <p class="title no-margin">Total Staked</p>
+          <p class="value no-margin"><span id="total-staked">0</span> DFN</p>
+          <p class=" usd-value no-margin">~ <span id="staking-usdt">0</span> USDT</p>
+        </div>
+        <div class="reward no-margin">
+          <p class="title no-margin">Earnings</p>
+          <p  class="value no-margin"><span id="earnings">0</span> DFN</p>
+          <p  class="usd-value no-margin">~ <span id="earning-usdt">0</span> USDT</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col">
+        <a href="./plans.html" class="btn btn-outline-info btn-block">Plans</a>
+      </div>
+      <div class="col">
+        <a href="./promotions.html" class="btn btn-outline-info  btn-block ">Promotions</a>
+      </div>
+    </div>
+    <div class="mt-4" id="onboarding-msg"></div>
+    <div id="onboarding-btn"></div>
+
+   <div class="pie-chart">
+      <!-- This canvas element will hold the pie chart -->
+      <canvas id="myPieChart"></canvas>
+    </div>
+   
+    <div id="refer-alert"></div>
+    <div class="text-center" id="refer-button" ></div>
+   
+ 
+
+  </div>
+  <div id="footer-menu"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <script>  document.onreadystatechange = function() {
+    const loader = document.getElementById("loader");
+    if (document.readyState === "complete") {
+      loader.style.display = "none";
+    } else {
+      loader.style.display = "block";
+    }
+    };
+</script>
+<script type="module" src="./home.js"></script>
+<script type="module" src="./main.js"></script>
+</body>
+</html>

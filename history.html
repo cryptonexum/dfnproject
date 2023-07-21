@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.5.2/web3.min.js"></script>
+  <script src="./script.js"></script>
+  <link rel="stylesheet" href="./style.css">
+  <script>  document.onreadystatechange = function() {
+    const loader = document.getElementById("loader");
+
+    if (document.readyState === "complete") {
+      loader.style.display = "none";
+    } else {
+      loader.style.display = "block";
+    }
+  };
+
+</script>
+<style>
+        .transaction-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      background-color: #f8f9fa;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .transaction-row .transaction-details {
+      display: flex;
+      align-items: center;
+    }
+
+    .transaction-row .transaction-details i {
+      margin-right: 5px;
+    }
+
+    .transaction-row .transaction-amount {
+      font-weight: bold;
+    }
+  
+  .float-right{
+    float: right;
+  }
+   .button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .button-container .btn {
+      margin-right: 3px;
+    }
+    .coin-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      border: 1px solid #17a2b8;
+    padding: 10px;
+    border-radius: 5px;
+    }
+
+    .coin-row .coin-name {
+      display: flex;
+      align-items: center;
+    }
+
+    .coin-row .coin-name i {
+      margin-right: 5px;
+    }
+    .balance-container{
+      font-size: 18px;
+      
+    }
+    .coin-logo{
+      width: 25px;
+      margin-right: 10px;
+    }
+
+</style>
+</head>
+<body>
+  <div id="loader" class="loader">
+    <div class="spinner"></div>
+  </div>
+  <nav class="top-navbar">
+    <div class="container">
+  
+      <h3 id="header-title">
+        <i class="fas fa-mobile-alt"> </i>
+        <span id="header-title-text">History</span>
+      </h3>
+      <button id="web3-login-button" class="web3-login-button btn">Web3 Login</button>
+      <div class="web3-wallet-address" style="display: none;">
+        <span></span>
+      </div>
+    </div>
+  </nav>
+<div class="container">
+    <h3>Recent Transactions</h3>
+    <div class="transaction-row mt-4">
+        <div class="transaction-details">
+          <i class="fas fa-arrow-up"></i>
+          <span>Send Transaction</span>
+        </div>
+        <div class="transaction-amount">0.005 ETH</div>
+    </div>
+    <div class="transaction-row">
+        <div class="transaction-details">
+          <i class="fas fa-arrow-down"></i>
+          <span>Send Transaction</span>
+        </div>
+        <div class="transaction-amount">0.005 ETH</div>
+    </div>
+</div>
+  
+   
+
+  <div class="bottom-navbar">
+    <ul class="nav">
+        <li class="nav-item" hidden>
+            <a class="nav-link active" href="main.html">
+              <i class="fas fa-home"></i>
+              <span>History</span>
+            </a>
+            <div class="menu-content">
+              <!-- Content for Home page goes here -->
+            </div>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link" href="main.html">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+        <div class="menu-content">
+          <!-- Content for Home page goes here -->
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="assets.html">
+          <i class="fas fa-box-open"></i>
+          <span>Assets</span>
+        </a>
+        <div class="menu-content">
+          <!-- Content for Assets page goes here -->
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="stake.html">
+          <i class="fas fa-hand-holding-usd"></i>
+          <span>Stake</span>
+        </a>
+        <div class="menu-content">
+          <!-- Content for Stake page goes here -->
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="team.html">
+          <i class="fas fa-users"></i>
+          <span>Team</span>
+        </a>
+        <div class="menu-content">
+          <!-- Content for Team page goes here -->
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="settings.html">
+          <i class="fas fa-cog"></i>
+          <span>Settings</span>
+        </a>
+        <div class="menu-content">
+          <!-- Content for Settings page goes here -->
+        </div>
+      </li>
+    </ul>
+  </div>
+  <script>
+     const copyButton = document.getElementById("copy-button");
+
+copyButton.addEventListener("click", function() {
+  const textToCopy = "Text to be copied"; // Replace with the text you want to copy
+
+  // Create a temporary input element
+  const tempInput = document.createElement("input");
+  tempInput.value = textToCopy;
+  document.body.appendChild(tempInput);
+
+  // Copy the text from the input element
+  tempInput.select();
+  document.execCommand("copy");
+
+  // Remove the temporary input element
+  document.body.removeChild(tempInput);
+
+  // Display a confirmation message
+  alert("Text copied to clipboard!");
+});
+
+  </script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
