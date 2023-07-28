@@ -75,7 +75,7 @@ submitWithdraw.addEventListener("click", async () => {
       if(resultTr.status=='success'){
         errormsg.innerHTML =` <div class="alert alert-info alert-dismissible fade show">
         <span style="margin-right:10px" type="button" class="close" data-dismiss="alert">&times;</span>
-        <a href="https://testnet.ftmscan.com/tx/${resultTr.transactionHash}">${resultTr.transactionHash}</a>
+        Hash:&nbsp; <a target ='_blank' href="https://testnet.ftmscan.com/tx/${resultTr.transactionHash}">${resultTr.transactionHash}</a>
       </div>`;
       submitWithdraw.disabled ="true";
         return;

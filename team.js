@@ -5,7 +5,7 @@
     import { utils } from "ethers";
     import {readContracts,watchAccount} from "@wagmi/core";
     import ethereumClient from "./walletConnect";
-    import { stakingAddress,TOKEN_PRICE } from "./config";
+    import { stakingAddress,TOKEN_PRICE,getShareData } from "./config";
   
 
 
@@ -17,14 +17,9 @@
     const yourAccount  = document.getElementById("your-account");
     const referralsContainer  = document.getElementById("referrals-container");
     const sharebtn  = document.getElementById("share");
-    const shareData = {
-        title: "DFN- DeFi Network",
-        text: "Hi I would like to invite you to DeFi Network. \nfollow the link and register using my Account as referralCode i.e :\n"+ethereumClient.getAccount().address+"\n\n",
-    
-        url: "https://definet.io",
-      };
     
       sharebtn.addEventListener("click", async () => {
+        const shareData =getShareData(ethereumClient.getAccount().address);
           try {
             await navigator.share(shareData);
            console.log("success")

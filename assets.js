@@ -95,12 +95,17 @@ AvailableRewards.innerHTML = (total - Number(utils.formatEther(AccountData[6].re
 
 
 receivebtn.addEventListener("click", async () => {
+  var opts = {
+    type: 'image/webp',
+    quality: 1,
+    margin: 1,
+  }
         try {
-         var data_ =  await QRCode.toDataURL(ethereumClient.getAccount().address);
+         var data_ =  await QRCode.toDataURL(ethereumClient.getAccount().address,opts);
          console.log(data_);
          var data = `
-         <img width="100%" src="data: ${data_}">
-        <p style="word-wrap:break-word;border:1px grey solid;padding:4px"> ${ethereumClient.getAccount().address}</p>
+         <img style="margin-bottom: 10px;border:1px solid black" width="70%" src="data: ${data_}">
+        <p class="alert alert-primary" style="word-wrap:break-word;padding:10px;width: 100%;"> ${ethereumClient.getAccount().address}<input type="hidden" value="${ethereumClient.getAccount().address}" id="yourAddressCopy"><i onclick="copyToClipboard('yourAddressCopy')" class="fa-solid fa-copy float-right"></i></p>
          <p class="alert alert-danger">Note: Send Only BEP20 USDT or DFN only to this address</p>
          `
          qrcode__.innerHTML = data;

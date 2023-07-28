@@ -5,20 +5,14 @@ import getPlanName from "./contractUtils";
 import Chart from "chart.js/auto";
 import {readContracts,watchAccount} from "@wagmi/core";
 import ethereumClient from "./walletConnect";
-import { stakingAddress,TOKEN_PRICE } from "./config";
+import { stakingAddress,TOKEN_PRICE,getShareData } from "./config";
+
 
 const stakeCOntract = {
     address: stakingAddress,
     abi: stakeABi,
 }
   const tokenPrice = Number(TOKEN_PRICE); 
-
-  const shareData = {
-    title: "DFN- DeFi Network",
-    text: "Hi I would like to invite you to DeFi Network. \nfollow the link and register using my Account as referralCode i.e :\n"+ethereumClient.getAccount().address+"\n\n",
-
-    url: "https://definet.io",
-  };
 
 var connected=ethereumClient.getAccount().isConnected;
 if(connected ==true){
@@ -91,7 +85,7 @@ if(connected ==true){
       earningsUSDT.innerHTML = ((Number(profit)+Number(utils.formatEther(AccountData[4].result)))* tokenPrice).toFixed(2);
       stakingUSDT.innerHTML = (Number(total_stake)*tokenPrice).toFixed(2);
       const planId = String(AccountData[1].result[0].planId);
-      nameMembership.innerHTML = "GOLD" +" Member";
+      nameMembership.innerHTML = getPlanName(Number(planId)) +" Member";
     
   
       var countReferrals = Number(AccountData[5].result);
@@ -145,6 +139,7 @@ if(connected ==true){
 }
 
 function share(){
+const shareData =getShareData(ethereumClient.getAccount().address);
 const shareBtn = document.getElementById("share");
 shareBtn.addEventListener("click", async () => {
   try {

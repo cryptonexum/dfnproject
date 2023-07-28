@@ -57,8 +57,12 @@
               <span id="swap_dfn_balance">0 </span>
             </div>
           </div>
-        <p class="text-center text-danger">(Present Price : 0.001 USDT / DFN)</p>
+        <p style="font-weight:bold" class="text-center text-danger">(Present Price : <span id="currentPrice">0</span> USDT / DFN)</p>
    </div>
+
+    <div class="row swapContainerstyle " style="color:rgb(180, 45, 45);word-wrap: break-word; display:none" id="errormsg"></div>
+
+   <div id="containerOfSwap" class="container swapContainerstyle">
     <div class="form-group ">
       <label class="form-label" for="tokenA">USDT</label>
       <div class="input-group">
@@ -87,9 +91,9 @@
     </div>
     
     <div class="text-center mt-4">
-        <div class="row" style="color:rgb(180, 45, 45);word-wrap: break-word;" id="errormsg"></div>
-      <button class="btn btn-swap" id="tokenSwap">Approve</button>
+      <button class="btn btn-primary" id="tokenSwap"><i class="fa fa-refresh fa-spin"></i> Waiting for Input</button>
     </div>
+  </div>
     <div class="text-center mt-3">
       <p id="result"></p>
     </div>
