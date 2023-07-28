@@ -1,42 +1,17 @@
-
 {
-  "background_color": "#14a2b8",
-  "description": "Decentralized Finance Network",
-  "dir": "ltr",
-  "display": "standalone",
-  "name": "cryptonexum",
-  "orientation": "any",
-  "scope": "/",
-  "short_name": "cryptonexum",
-  "start_url": "/main.html",
   "theme_color": "#3496ff",
-  "categories": [
-    "finance",
-    "utilities"
-  ],
-  "screenshots": [
-    {
-      "src": "./test.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "Homescreen of DFN App"
-    }
-  ],
+  "background_color": "#3496ff",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/index.html",
+  "name": "DeFi Network",
+  "short_name": "DFN",
+  "description": "Decentralized Finance Network",
   "icons": [
     {
-      "src": "/bitcoin-logo.png",
-      "type": "image/x-icon"
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
-  ],
-  "lang": "en",
-  "display_override": [
-    "window-controls-overlay",
-    "standalone"
-  ],
-  "iarc_rating_id": "18",
-  "prefer_related_applications": true,
-  "edge_side_panel": {
-    "preferred_width": 0
-  }
+  ]
 }

@@ -1,7 +1,5 @@
 import { configureChains, createConfig} from "@wagmi/core";
-import { bsc,mainnet,fantomTestnet } from "@wagmi/core/chains";
-// import { publicProvider } from '@wagmi/core/providers/public';
-
+import { bsc,bscTestnet,fantom,fantomTestnet} from "@wagmi/core/chains";
 import {
   EthereumClient,
   w3mConnectors,
@@ -14,7 +12,7 @@ const projectId = "24448e62f885c4bf3ad00a159240d5b1";
 if (!projectId) {
   throw new Error("You need to provide VITE_PROJECT_ID env variable");
 }
-const chains = [fantomTestnet];
+const chains = [bsc,bscTestnet,fantom,fantomTestnet];
 
 
 // 2. Configure wagmi client
@@ -29,6 +27,7 @@ const wagmiConfig = createConfig({
 }); 
 
 
+
 // 3. Create ethereum and modal clients
 const ethereumClient = new EthereumClient(wagmiConfig, chains);
 export const web3Modal = new Web3Modal(
@@ -39,5 +38,8 @@ export const web3Modal = new Web3Modal(
 );
 console.log("client",ethereumClient.getNetwork())
 
+
 export default ethereumClient;
+
+
 

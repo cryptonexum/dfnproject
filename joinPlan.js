@@ -55,7 +55,8 @@ duration.innerHTML = urlParams.get('stakingPeriod');
 tokenPercentage.innerHTML = urlParams.get('earningpercentage');
 tokenProfit.innerHTML = urlParams.get('earningtoken');
 usd.innerHTML =Number(utils.formatEther(usdtBal)).toFixed(2);
-dfn.innerHTML =Number(utils.formatEther(tokenBalance)).toFixed(2);
+var tokenBalances =Number(utils.formatEther(tokenBalance)).toFixed(2);
+dfn.innerHTML =tokenBalances;
 required.innerHTML = urlParams.get('minAmount');
 
 console.log(utils.formatEther(usdtBal));
@@ -80,6 +81,10 @@ joinBtn.addEventListener("click",async function(event) {
             return;
         }
         if(joinBtn.innerHTML != 'Stake Now'){
+          if(tokenBalances<minAmount){
+            alert("Not Enough DFN to stake");
+            return;
+        }
         
             const result = await writeContract({
                 address: tokenAddress,
@@ -131,6 +136,10 @@ joinBtn.addEventListener("click",async function(event) {
         addressError.innerHTML ="Invalid Referral Code!"
         return;
     }
+    if(tokenBalances<minAmount){
+      alert("Not Enough DFN to stake");
+      return;
+  }
     if(amount<minAmount){
         addressError.innerHTML ="Amount must be more than "+ minAmount +" DFN";
         return;

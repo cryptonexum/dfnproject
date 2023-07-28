@@ -1,27 +1,14 @@
 import { utils } from "ethers";
-import DFN_TOKEN_ABI from "./dfn-token-ABI.json";
+import DFN_TOKEN_ABI from "./stake-ABI.json";
+import {stakingAddress} from './config'
 import getPlanName from "./contractUtils";
-import Chart from "chart.js/auto";
 import { readContracts, watchAccount } from "@wagmi/core";
 import ethereumClient from "./walletConnect";
-import contract from './contractUtils';
 
 const dfnContract = {
-  address: "0x91a070b63C9b8C25C6A187B9399CB7378C3f8459",
+  address: stakingAddress,
   abi: DFN_TOKEN_ABI,
 };
-const tokenPrice = 0.01;
-
-const shareData = {
-  title: "DFN- DeFi Network",
-  text:
-    "Hi I would like to invite you to DeFi Network. \nfollow the link and register using my Account as referralCode i.e :\n" +
-    ethereumClient.getAccount().address +
-    "\n\n",
-
-  url: "https://definet.io",
-};
-
 
 const PlansDiv = document.getElementById("plans-content");
 
@@ -55,7 +42,7 @@ if (connected == true) {
 
       
         const htmlContent = `<div class="col-sm-4 pb-5" >
-        <div class="card card_${i+1} text-center">
+        <div class="card card-plans card_${i+1} text-center">
           <div class="title">
             <i class="fa fa-paper-plane" aria-hidden="true"></i>
             <h2>${getPlanName(i+1)}</h2>

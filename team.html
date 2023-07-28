@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <title>Team</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link rel="manifest" href="/manifest.json" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -57,7 +58,7 @@
     
     <div class="referrer">
       <span>Referred By:</span>
-      <span id="copy-button" class="float-right "><span id="referredBy"></span> </span>
+      <span id="copy-button"><span id="referredBy"></span> </span>
     </div>
     <div class="text-center mt-2">
       <i style="color:#14a2b8;" class="fas fa-arrow-down"> </i>
@@ -93,5 +94,33 @@
     </script>
     <script type="module" src="./team.js"></script>
     <script type="module" src="./main.js"></script>
+    <script type="module" src="./common.js"></script>
+    <script>
+      function copyToClipboard(id) {
+    const hiddenInputValue = document.getElementById(id).value;
+
+    // Create a temporary textarea element
+    const tempTextarea = document.createElement("textarea");
+    tempTextarea.value = hiddenInputValue;
+    document.body.appendChild(tempTextarea);
+  
+    // Select the text inside the temporary textarea
+    tempTextarea.select();
+    tempTextarea.setSelectionRange(0, 99999); // For mobile devices
+  
+    try {
+      // Copy the selected text to the clipboard using Clipboard API
+      const successful = document.execCommand("copy");
+      const message = successful ? "Address copied to clipboard!" : "Failed to copy text";
+      alert(message);
+    } catch (err) {
+      console.error("Error copying text:", err);
+    }
+  
+    // Remove the temporary textarea from the DOM
+    document.body.removeChild(tempTextarea);
+  
+}
+    </script>
   </body>
 </html>

@@ -5,10 +5,12 @@ import ethereumClient from "./walletConnect";
 import { stakingAddress } from "./config";
 
 const address =  document.getElementById("address");
+const parentAddress =  document.getElementById("parentAddress");
 const referralsContainer =  document.getElementById("referralsContainer");
 const urlParams = new URLSearchParams(window.location.search);
 const addressValue = urlParams.get("address");
 address.innerHTML=maskWalletAddress(addressValue);
+parentAddress.value = addressValue;
 
 
 const stakeCOntract = {
@@ -31,7 +33,7 @@ const AccountData = await readContracts({
 if(AccountData[0].result.length>0){
   for(var i=0;i<AccountData[0].result.length;i++){
     var htmlContent =   `<div class="referrer text-center">
-      <a href="referrals.html?address=${AccountData[0].result[i]}" class="no-decoration">${maskWalletAddress(AccountData[0].result[i])}</span> <i class="fa-solid fa-arrow-up-right-from-square"></i> </i></a>
+      <a href="referrals.html?address=${AccountData[0].result[i]}" class="no-decoration">${maskWalletAddress(AccountData[0].result[i])}</span> <input id="copy${i}" type="hidden" value="${AccountData[0].result[i]}"/><i class="fa-solid fa-arrow-up-right-from-square"></i></a> <i style="margin-left: 100px;" onclick="copyToClipboard('copy${i}')" class="fa-solid fa-copy "></i>
       </div>`
       referralsContainer.insertAdjacentHTML("beforeend",(htmlContent));
     }

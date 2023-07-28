@@ -72,9 +72,8 @@ if(connected ==true){
     
     if(AccountData[1].status == 'failure'){
       onboardMsg.innerHTML =`<div id="refer-alert" class="alert alert-info text-center" role="alert">&#128559; Seems like you are new User<br>Join any plan and start earning upto 50,000 USDT</div>`;
-      onboardBtn.innerHTML = `<button onclick="window.location.href='./plans.html'" class="btn btn-md btn-block btn-primary">View Plans <i class="fa-solid fa-arrow-up-right-from-square"></i></i></button>`;
+      onboardBtn.innerHTML = `<button onclick="window.location.href='./stakePlan.html'" class="btn btn-md btn-block btn-primary">View Plans <i class="fa-solid fa-arrow-up-right-from-square"></i></i></button>`;
       nameMembership.innerHTML = "Not A Member"
-      document.getElementById("footer-menu").style.display = 'none';
     }else{
         const referralCommision = Number(utils.formatEther(AccountData[4].result));
       const deposit = utils.formatEther(String(AccountData[0].result))
@@ -92,7 +91,7 @@ if(connected ==true){
       earningsUSDT.innerHTML = ((Number(profit)+Number(utils.formatEther(AccountData[4].result)))* tokenPrice).toFixed(2);
       stakingUSDT.innerHTML = (Number(total_stake)*tokenPrice).toFixed(2);
       const planId = String(AccountData[1].result[0].planId);
-      nameMembership.innerHTML = getPlanName(Number(planId)) +" Member";
+      nameMembership.innerHTML = "GOLD" +" Member";
     
   
       var countReferrals = Number(AccountData[5].result);

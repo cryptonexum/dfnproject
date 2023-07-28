@@ -7,8 +7,6 @@ const withdrawable = document.getElementById("withdrawable-reward");
 const withdrawAmount = document.getElementById("withdrawAmount");
 const submitWithdraw = document.getElementById("submit-withdraw");
 const errormsg = document.getElementById("errormsg");
-available_balance
-
 
 
 
