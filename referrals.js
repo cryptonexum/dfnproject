@@ -1,5 +1,5 @@
 
-import stakeABi from "./stake-ABI.json";
+import stakeABi from "./ABI_STAKE.json";
 import {readContracts} from "@wagmi/core";
 import ethereumClient from "./walletConnect";
 import { stakingAddress } from "./config";

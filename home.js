@@ -1,6 +1,6 @@
 
 import { utils } from "ethers";
-import stakeABi from "./stake-ABI.json"
+import stakeABi from "./ABI_STAKE.json"
 import getPlanName from "./contractUtils";
 import Chart from "chart.js/auto";
 import {readContracts,watchAccount} from "@wagmi/core";

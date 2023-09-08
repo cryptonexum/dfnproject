@@ -2,8 +2,8 @@ import {readContract,readContracts} from '@wagmi/core';
 import ethereumClient from "./walletConnect";
 import {utils} from 'ethers';
 import { usdtAddress,tokenAddress,stakingAddress } from './config';
-import ERC20_ABI from './tokenABI.json'
-import stakeABI from './stake-ABI.json';
+import ERC20_ABI from './ABI_ERC20.json'
+import stakeABI from './ABI_STAKE.json';
 import QRCode from 'qrcode'
 const DFN_BAL = document.getElementById("swap_dfn_balance");
 const USDTBAL = document.getElementById("swap_usdt_balance");

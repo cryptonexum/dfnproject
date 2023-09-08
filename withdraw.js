@@ -2,7 +2,7 @@ import {waitForTransaction,readContracts,writeContract} from '@wagmi/core';
 import ethereumClient from "./walletConnect";
 import {utils} from 'ethers';
 import {stakingAddress } from './config';
-import stakeABI from './stake-ABI.json';
+import stakeABI from './ABI_STAKE.json';
 const withdrawable = document.getElementById("withdrawable-reward");
 const withdrawAmount = document.getElementById("withdrawAmount");
 const submitWithdraw = document.getElementById("submit-withdraw");

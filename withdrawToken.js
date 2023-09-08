@@ -3,7 +3,7 @@ import ethereumClient from "./walletConnect";
 import { isAddress } from 'web3-validator';
 import {utils} from 'ethers';
 import {tokenAddress } from './config';
-import tokenABI from './tokenABI.json'
+import tokenABI from './ABI_ERC20.json'
 const recipientAddress = document.getElementById("recipientAddress");
 const amount = document.getElementById("amount");
 const sendBtn = document.getElementById("sendbtn");

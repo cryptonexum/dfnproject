@@ -1,7 +1,7 @@
    
     
 
-    import stakeABi from "./stake-ABI.json";
+    import stakeABi from "./ABI_STAKE.json";
     import { utils } from "ethers";
     import {readContracts,watchAccount} from "@wagmi/core";
     import ethereumClient from "./walletConnect";
@@ -63,6 +63,11 @@
           {
             ...stakeCOntract,
             functionName: 'getDirectReferrals',
+            args:[ethereumClient.getAccount().address]
+          },
+          {
+            ...stakeCOntract,
+            functionName: 'getAccountStakings',
             args:[ethereumClient.getAccount().address]
           },
 

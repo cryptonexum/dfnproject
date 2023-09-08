@@ -1,9 +1,8 @@
 import {writeContract,waitForTransaction,readContract,readContracts} from '@wagmi/core';
 import ethereumClient from "./walletConnect";
 import {utils} from 'ethers';
-import { usdtAddress,tokenAddress,stakingAddress,TOKEN_PRICE } from './config';
-import ERC20_ABI from './tokenABI.json'
-import stakeABI from './stake-ABI.json';
+import {stakingAddress,TOKEN_PRICE } from './config';
+import stakeABI from './ABI_STAKE.json';
 import getPlanName from "./contractUtils";
 
 const totalStaked = document.getElementById("total-staked");

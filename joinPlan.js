@@ -6,10 +6,10 @@ import {
   readContracts,
 } from "@wagmi/core";
 import { utils } from "ethers";
-import tokenABI from "./tokenABI.json";
+import tokenABI from "./ABI_ERC20.json";
 import { usdtAddress, tokenAddress, stakingAddress } from "./config";
 import { isAddress } from "web3-validator";
-import stakeABI from "./stake-ABI.json";
+import stakeABI from "./ABI_STAKE.json";
 
 const stakeContract = {
   address: stakingAddress,

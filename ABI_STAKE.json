@@ -7,6 +7,30 @@
     "type": "constructor"
   },
   {
+    "inputs": [
+      { "internalType": "uint256", "name": "_planId", "type": "uint256" },
+      {
+        "internalType": "uint256",
+        "name": "_minimumStakeWithoutDecimals",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_lockDurationInDays",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_dailyReturnWithfourDecimals",
+        "type": "uint256"
+      }
+    ],
+    "name": "addStakingPlan",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
     "name": "balances",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
@@ -38,6 +62,22 @@
     "name": "countIndirectReferrals",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "dailyReturnDivider",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "planId", "type": "uint256" }
+    ],
+    "name": "deletePlan",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -92,6 +132,7 @@
     "outputs": [
       {
         "components": [
+          { "internalType": "uint256", "name": "planId", "type": "uint256" },
           {
             "internalType": "uint256",
             "name": "minimumStake",
@@ -257,6 +298,22 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "isICORunning",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "planId", "type": "uint256" }
+    ],
+    "name": "isPlanIdExists",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       { "internalType": "address", "name": "user", "type": "address" },
       { "internalType": "address", "name": "referrer", "type": "address" },
@@ -350,6 +407,18 @@
   },
   {
     "inputs": [
+      { "internalType": "uint256", "name": "planId", "type": "uint256" },
+      { "internalType": "uint256", "name": "minimumAmount", "type": "uint256" },
+      { "internalType": "uint256", "name": "numDays", "type": "uint256" },
+      { "internalType": "uint256", "name": "perDayPercent", "type": "uint256" }
+    ],
+    "name": "updatePlan",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
       { "internalType": "uint256", "name": "amount", "type": "uint256" }
     ],
     "name": "withdrawNativeCurrency",
@@ -373,6 +442,13 @@
     "name": "withdrawTokens",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "withdrawalFeePercent",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
     "type": "function"
   }
 ]

@@ -17,12 +17,13 @@ section {
   padding: 40px 20px 30px ;
   box-shadow: 0 10px 15px rgba(0,0,0,0.3);
   transition: .5s;
+  z-index: 0;
 
 }
 .card-plans:hover {
   transform:scale(1.1);
 }
-.card_1, .card_one .title .fa {
+/* .card_1, .card_one .title .fa {
   background: linear-gradient(130deg, #ccc437, #f321d7);
   z-index: 0;
 }
@@ -58,7 +59,7 @@ section {
   .card_8, .card_eight .title .fa  {
     background: linear-gradient(-45deg, #389708, #9a4eff);
     z-index: 0;
-  }
+  } */
 
 .card-plans:before {
   content: '';
